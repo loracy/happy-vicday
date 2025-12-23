@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <title>我的個人頁面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+            /* 一些基本重置與版面設定 */
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+                line-height: 1.6;
+                color: #333;
+                background-color: #f7f7f7;
+            }
+
+            /* 整體容器寬度不鎖死，適合手機，也能支援桌機 */
+            .container {
+                width: 100%;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 16px;
+            }
+
+            /* 頂部圖片區：滿版寬度，不一定要文字 */
+            .hero {
+                width: 100%;
+                /* 預留高度：手機滿版約 40vh，可依需求調整 */
+                height: 40vh;
+                background-color: #ddd; /* 先用灰色當作預留空間 */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: #666;
+                font-size: 14px;
+            }
+
+            /*
+          如果你有圖片，可以之後改成：
+          .hero {
+            background-image: url('你的圖片網址');
+            background-size: cover;
+            background-position: center;
+          }
+        */
+
+            /* 文字內容區 */
+            .content {
+                margin-top: 24px;
+                background-color: #ffffff;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            }
+
+                .content h1 {
+                    font-size: 24px;
+                    margin-bottom: 12px;
+                    color: #222;
+                }
+
+                .content p {
+                    font-size: 15px;
+                    color: #555;
+                }
+
+            /* 讓手機閱讀舒服一點的行距與字級 */
+            @media (max-width: 480px) {
+                .content {
+                    padding: 16px;
+                }
+
+                    .content h1 {
+                        font-size: 22px;
+                    }
+
+                    .content p {
+                        font-size: 14px;
+                    }
+            }
+    </style>
+</head>
+<body>
+    <!-- 頂部：圖片預留空間 -->
+    <div class="hero">
+        <!-- 這裡目前只是占位文字，之後可以拿掉 -->
+        預留滿版圖片區（之後可換成你的 banner 圖片）
+    </div>
+
+    <!-- 主要文字內容區 -->
+    <div class="container">
+        <section class="content">
+            <h1>這是我的個人小角落</h1>
+            <p>
+                這裡是一段示意文字，未來你可以把想分享的故事、心得或作品介紹寫在這裡。
+                在這個頁面上，你可以簡單放上自我介紹、作品連結，或是任何你想讓別人第一眼看到的內容。
+                文字可以長一些，讓訪客對你有更多認識，也可以保持簡潔，把重點放在圖片或作品連結上。
+            </p>
+        </section>
+    </div>
+</body>
+</html>
