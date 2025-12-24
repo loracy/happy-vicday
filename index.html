@@ -5,29 +5,29 @@
     <title>我的個人頁面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-            /* 一些基本重置與版面設定 */
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-            }
+        /* 一些基本重置與版面設定 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
-                line-height: 1.6;
-                color: #333;
-                background-color: #f7f7f7;
-            }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f7f7f7;
+        }
 
-            /* 整體容器寬度不鎖死，適合手機，也能支援桌機 */
-            .container {
-                width: 100%;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 16px;
-            }
+        /* 整體容器寬度不鎖死，適合手機，也能支援桌機 */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px;
+        }
 
-            /* 頂部圖片區：滿版寬度，不一定要文字 */
+        /* 頂部圖片區：滿版寬度，不一定要文字 */
         .hero {
             width: 100%;
             height: 42vh;
@@ -36,40 +36,67 @@
             background-position: center;
         }
 
-            /* 文字內容區 */
+        /* 文字內容區 */
+        .content {
+            margin-top: 24px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+            .content h1 {
+                font-size: 24px;
+                margin-bottom: 12px;
+                color: #222;
+            }
+
+            .content p {
+                font-size: 15px;
+                color: #555;
+            }
+
+        /* --- 以下是新增的按鈕樣式 --- */
+        .button-container {
+            text-align: center; /* 讓按鈕在容器內置中 */
+            margin-top: 24px; /* 與上方文字的間距 */
+            margin-bottom: 10px; /* 與下方邊界的間距 */
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .action-button {
+            display: inline-block;
+            background-color: #002951; /* 指定的背景顏色 */
+            color: #ffffff; /* 白色文字以確保對比度 */
+            padding: 12px 24px; /* 按鈕內距，讓按鈕看起來大一點 */
+            margin: 5px; /* 按鈕之間的外距 */
+            border-radius: 5px; /* 圓角 */
+            text-decoration: none; /* 移除超連結底線 */
+            font-weight: bold; /* 字體加粗 */
+            transition: opacity 0.3s; /* 增加一個簡單的滑鼠懸停效果 */
+        }
+
+            .action-button:hover {
+                opacity: 0.85; /* 滑鼠懸停時稍微變淡 */
+            }
+        /* --- 新增樣式結束 --- */
+
+
+        /* 讓手機閱讀舒服一點的行距與字級 */
+        @media (max-width: 480px) {
             .content {
-                margin-top: 24px;
-                background-color: #ffffff;
-                border-radius: 8px;
-                padding: 20px;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+                padding: 16px;
             }
 
                 .content h1 {
-                    font-size: 24px;
-                    margin-bottom: 12px;
-                    color: #222;
+                    font-size: 22px;
                 }
 
                 .content p {
-                    font-size: 15px;
-                    color: #555;
+                    font-size: 14px;
                 }
-
-            /* 讓手機閱讀舒服一點的行距與字級 */
-            @media (max-width: 480px) {
-                .content {
-                    padding: 16px;
-                }
-
-                    .content h1 {
-                        font-size: 22px;
-                    }
-
-                    .content p {
-                        font-size: 14px;
-                    }
-            }
+        }
     </style>
 </head>
 <body>
@@ -82,43 +109,57 @@
             <h1>Dear Vic 伸哥 aka 小李子 aka 澳客 aka 李育爽</h1>
             <p>
                 今天剛好是我們認識的一個月又多幾天，回想起，與你相遇的那天是我年末最難忘的、最特別的一日，與你相識的過程中則使我總是充滿熱情和好奇(與色情)，與你相愛的這個月也漸漸讓我感到無比充實和幸福。
+                <br /><br />
+                因為知道你不喜歡實體海報，我就想著盡量把一切都數位化，這樣一來不管你未來會去哪裡生活，便不必煩惱該攜帶著或斷捨離，只要輸入一樣的網址，這些內容永遠都會被放置在這裡。
                 <br />
-                因為知道你不喜歡實體海報，我就想著盡量把一切都數位化，這樣一來不管你未來會去哪裡生活，不必煩惱該攜帶著或斷捨離，只要輸入一樣的網址，你永遠都可以看的到這些內容。
                 <br />
-                今天也想透過這封信好好的感謝這些日子的點點滴滴。
+                今天也想透過這封信，好好的向你感謝這些日子的點點滴滴。
+                <br /><br />
+                謝謝你總是跟我分享你碗裡最好吃的一塊肉，讓我長的越來越有福氣。<br />
+                謝謝你總是包容我的焦慮和緊張，並願意嘗試穩定我的情緒。<br />
+                謝謝你給我很多甜蜜又有趣的時光，光光是抱著你和你聊天，就能讓我渾身都充了飽飽的電。<br />
+                謝謝你帶我去很多美味的餐廳探吃，謝謝你教我說台語，謝謝你在寶神火鍋店帶我開船，謝謝你為我多外帶一杯木瓜牛奶，謝謝你唱張學友的《她來聽我的演唱會》給我聽，謝謝你購買我的貼圖，謝謝你買卡布奇諾來我的公司，謝謝你總願意讓我枕著你寬厚溫暖的手臂，謝謝你關心我的身體健康和月經，還有最重要的，謝謝你總是給我很多很多很多的自信。<br />
                 <br />
-                謝謝你總是跟我分享你碗裡最好吃的一塊肉，讓我長的越來越有福氣。
-                謝謝你總是包容我的焦慮和緊張，並願意嘗試穩定我的情緒。
-                謝謝你給我很多甜蜜又有趣的時光，光光是抱著你和你聊天，就能讓我渾身都充了飽飽的電。
-                謝謝你帶我去很多美味的餐廳探吃，謝謝你教我說台語，謝謝你在寶神火鍋店帶我開船，謝謝你為我多外帶一杯木瓜牛奶，謝謝你唱張學友的《她來聽我的演唱會》給我聽，謝謝你購買我的貼圖，謝謝你買卡布奇諾來我的公司，謝謝你總願意讓我枕著你寬厚溫暖的手臂，謝謝你關心我的身體健康和月經，還有最重要的，謝謝你總是給我很多很多很多的自信。
-                <br />
-                謝謝你、謝謝你、謝謝你 Vic，我不會忘記這些你帶給我的美好時光，謝謝你滋潤我成為一個笑口常開的(花癡)女人，讓我總是滿懷期待見到你的時刻。
+                謝謝你、謝謝你、謝謝你 Vic，我不會忘記這些你帶給我的美好時光，謝謝你滋潤我成為一個笑口常開的(花癡)女人，讓我每一次總是滿懷期待見到你的時刻。
                 <br />
                 <br />
                 我一直覺得送禮物是一件很私密、很感性的事，知道你是個偏理性的人後，我不想送你太務實的物質，但又不想太往感性發展，導致最後禮物被你擱在旁邊毫無用處。
                 <br />
-                所以本想兼顧理性與感性，送你一份大港開唱的門票，因為每每你提到音樂時，流露出的熱情和所有情緒，是我覺得離你的感性最接近的時刻，感覺這個禮物是挺完美的。
+                所以本想兼顧理性與感性，送你一份大港開唱的門票，因為每每你提到音樂時，流露出的熱情和所有情緒，是我覺得離你的感性最接近的時刻，原本感覺這個禮物是挺完美的。
                 <br />
-                結果不幸運地被暴雷了，所以禮物的部分要進行更動，希望你可以原諒我想延後個幾天，重新準備好之後再交給你(伸日快樂專案第一屆的汙點，會召開檢討會議進行改善)。
+                結果不幸運地被暴雷了，所以禮物的部分要進行更動，希望你可以原諒我想延後個幾天，重新準備好之後再交給你（此為伸日快樂專案第一屆的汙點，會召開檢討會議進行改善）。
                 <br />
                 <br />
                 親愛的 Vic 育伸～💘
-                <br />
-                真的很開心認識你，能夠遇到你，我真的覺得很幸運，謝謝你對我所有的好，希望與你感情變好則是我會憧憬的未來，讓你幸福快樂也是我會不斷努力的目標。
+                <br /><br />
+                真的很開心認識你，能夠遇到你，我真的覺得很幸運，謝謝你對我所有的好，與你感情變好是我會憧憬的未來，讓你幸福快樂也是我會不斷努力的目標！
+                <br /><br />
                 不管我們的緣分會怎麼發展，我都希望此時此刻我有好好把握住愛你的機會，有好好珍惜你，好好記住你的笑顏。
-                <br />
+                <br /><br />
                 Vic 我愛你，愛你的口條，愛你的帥氣和灑脫，愛你的笑容，愛你的穩重，愛你的正義與善良，愛你的台語，愛你的真誠不做作，愛你愛你非常愛你。
+                <br />
                 <br />
                 祝你生日快樂，如果不快樂也沒關係，現在可以交給我，我會努力負責讓你變快樂的😻
                 <br />
                 也想祝福你身體要健康，工作能更順心，早日見到你想念的貓咪，在屏東的媽咪爸鼻和姊姊也都健康平安，身邊的朋友們也都願意為你兩肋插刀。
-
+                <br /><br />
+                希望你喜歡我為你準備的這次伸日快樂專案，也希望你重新愛上過生日的感覺，也希望你新的一歲有更多難忘的回憶和生命旅程，也希望今天你很開心很開心。
+                <br /><br />
                 Happy Vicday my love!❤️🧡💛
                 <br /><br /><br /><br />
                 Loved,
                 Lora Lin
                 2025.12.27 (其實是 2025.12.24)
             </p>
+
+            <!-- --- 以下是新增的按鈕區塊 --- -->
+            <div class="button-container">
+                <a href="poster.png" class="action-button" style="flex-basis: calc(50% - 10px);">看海報</a>
+                <a href="invitation.jpg" class="action-button" style="flex-basis: calc(50% - 10px);;">看邀請函</a>
+                <a type="button" class="action-button" style="flex-basis: 100%; background-color: #333;">看今天合照 (尚未啟用)</a>
+            </div>
+            <!-- --- 新增區塊結束 --- -->
+
         </section>
     </div>
 </body>
