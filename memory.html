@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Happy Vicday</title>
+    <style>
+        /* --- 基本設定 --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* 隱藏滾動條，因為是全螢幕幻燈片 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+            background-color: #000000; /* 深色背景突顯照片 */
+        }
+
+        /* --- 幻燈片容器 --- */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex; /* 使用 Flexbox 來做垂直置中 */
+            align-items: center; /* 垂直置中 */
+            justify-content: center; /* 水平置中 */
+        }
+
+        /* --- 照片樣式 --- */
+        .slide-photo {
+            display: block;
+            width: 100%; /* 照片寬度撐滿螢幕 */
+            height: auto; /* 高度自動，維持照片比例 */
+            max-height: 100vh; /* 照片最大高度不超過螢幕 */
+            object-fit: contain; /* 確保照片完整顯示不裁切 */
+        }
+
+        /* --- 左右切換按鈕 --- */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%); /* 讓按鈕在垂直方向上精確置中 */
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            background-color: rgba(0, 0, 0, 0.3); /* 半透明背景 */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none; /* 防止使用者選取到按鈕文字 */
+            transition: background-color 0.3s ease;
+        }
+
+            .prev:hover, .next:hover {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* --- 計數器 --- */
+        .counter {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            text-shadow: 1px 1px 3px #000; /* 文字陰影增加可讀性 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 幻燈片結構 -->
+    <div class="slideshow-container">
+
+        <!-- 照片會顯示在這裡 -->
+        <img id="current-photo" class="slide-photo" src="" alt="回憶照片">
+
+        <!-- 計數器 -->
+        <div id="counter" class="counter"></div>
+
+        <!-- 上一張按鈕 -->
+        <a class="prev" id="prev-btn">
+            <!-- 使用 SVG 箭頭圖示，比文字更美觀 -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+        </a>
+
+        <!-- 下一張按鈕 -->
+        <a class="next" id="next-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+        </a>
+    </div>
+
+    <script>// --- 設定區 ---
+        // 您只需要修改這個數字，就可以改變照片總數
+        const TOTAL_PHOTOS = 15;
+        const PHOTO_FILENAME_PREFIX = 'memory_';
+        const PHOTO_EXTENSION = '.png'; // 如果您的照片是 .jpg 或其他格式，請修改這裡
+
+        // --- 程式邏輯區 (底下不用修改) ---
+        const photoEl = document.getElementById('current-photo');
+        const counterEl = document.getElementById('counter');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        // 根據總數自動產生照片檔案名稱陣列
+        const photos = [];
+        for (let i = 1; i <= TOTAL_PHOTOS; i++) {
+            photos.push(`${PHOTO_FILENAME_PREFIX}${i}${PHOTO_EXTENSION}`);
+        }
+
+        // 紀錄目前顯示到第幾張 (陣列索引從 0 開始)
+        let currentIndex = 0;
+
+        // 顯示照片的函式
+        function showPhoto(index) {
+            // 更新圖片來源
+            photoEl.src = photos[index];
+            // 更新計數器文字 (index 是從 0 開始，所以要 +1)
+            counterEl.textContent = `${index + 1} / ${TOTAL_PHOTOS}`;
+        }
+
+        // 處理 "下一張" 按鈕點擊
+        nextBtn.addEventListener('click', () => {
+            // 索引加 1，如果超過最後一張，就回到第一張 (索引 0)
+            currentIndex = (currentIndex + 1) % TOTAL_PHOTOS;
+            showPhoto(currentIndex);
+        });
+
+        // 處理 "上一張" 按鈕點擊
+        prevBtn.addEventListener('click', () => {
+            // 索引減 1，如果小於 0，就回到最後一張
+            currentIndex = (currentIndex - 1 + TOTAL_PHOTOS) % TOTAL_PHOTOS;
+            showPhoto(currentIndex);
+        });
+
+        // 頁面載入時，顯示第一張照片
+        showPhoto(currentIndex);</script>
+
+</body>
+</html>
